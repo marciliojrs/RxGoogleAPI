@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'RxGoogleAPI_Example' do
+  pod 'RxGoogleAPI', :path => '../'
+
+  target 'RxGoogleAPI_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
