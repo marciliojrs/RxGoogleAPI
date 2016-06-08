@@ -1,0 +1,38 @@
+PODS:
+  - Alamofire (3.4.0)
+  - Moya/Core (6.5.0):
+    - Alamofire (~> 3.0)
+    - Result (~> 2.0)
+  - Moya/RxSwift (6.5.0):
+    - Moya/Core
+    - RxSwift (~> 2.0)
+  - OAuthSwift (0.5.2)
+  - Result (2.0.0)
+  - RxBlocking (2.5.0):
+    - RxSwift (~> 2.5)
+  - RxGoogleAPI (0.1.0):
+    - Moya/RxSwift (~> 6.5)
+    - OAuthSwift (~> 0.5)
+    - RxBlocking (~> 2.5)
+    - RxSwift (~> 2.5)
+  - RxSwift (2.5.0)
+
+DEPENDENCIES:
+  - RxGoogleAPI (from `../`)
+
+EXTERNAL SOURCES:
+  RxGoogleAPI:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  Alamofire: c19a627cefd6a95f840401c49ab1f124e07f54ee
+  Moya: f7a4044719381cc6299f9ad3e0ef05f426f0557b
+  OAuthSwift: 1ef042d4362e755e24a78f158d817245641a5d24
+  Result: 9e75e1111c774c6ac594e14907b15057053a7959
+  RxBlocking: 595d9ab56dde6b00beaa5aba40e95b150d2135f1
+  RxGoogleAPI: 81b343719839aac42c18ffce8063ed6a390c34dc
+  RxSwift: 402b41a50e922a0368fc14cb3bc9f4427920e8ae
+
+PODFILE CHECKSUM: 5af0dbfb335db1cc410398d41216381b7219b100
+
+COCOAPODS: 1.0.1
