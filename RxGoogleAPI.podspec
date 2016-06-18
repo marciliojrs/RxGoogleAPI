@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'RxGoogleAPI'
-  s.version          = '0.1.0'
+  s.version          = '0.1.1'
   s.summary          = 'RxGoogleAPI it`s a framework to Sign In and use the Google API with RxSwift.'
 
   s.homepage         = 'https://github.com/marciliojrs/RxGoogleAPI'
