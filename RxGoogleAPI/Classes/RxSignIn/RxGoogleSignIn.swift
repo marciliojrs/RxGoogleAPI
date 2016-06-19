@@ -27,7 +27,11 @@ public class RxGoogleSignIn {
             let oauthProvider = OAuth2Swift(consumerKey: provider.clientId, consumerSecret: "", authorizeUrl: provider.authorizeURL, accessTokenUrl: provider.accessTokenURL, responseType: provider.responseType)
             
             if let viewController = UIApplication.sharedApplication().delegate?.window??.rootViewController {
-                oauthProvider.authorize_url_handler = SafariURLHandler(viewController: viewController)
+                let urlHandler = SafariURLHandler(viewController: viewController)
+                urlHandler.rx_safariViewControllerDidFinish.subscribeNext {
+                    observer.on(.Completed)
+                }
+                oauthProvider.authorize_url_handler = urlHandler                
             }                                                 
             
             oauthProvider.authorizeWithCallbackURL(provider.callbackURL, scope: provider.scope, state: provider.state, success: { (credential, response, parameters) in
