@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'RxGoogleAPI'
-  s.version          = '0.1.1'
+  s.version          = '0.1.2'
   s.summary          = 'RxGoogleAPI it`s a framework to Sign In and use the Google API with RxSwift.'
 
   s.homepage         = 'https://github.com/marciliojrs/RxGoogleAPI'
@@ -15,6 +15,7 @@ Pod::Spec.new do |s|
   
   s.dependency 'Moya/RxSwift', '~> 6.5'
   s.dependency 'RxSwift', '~> 2.5'
+  s.dependency 'RxCocoa', '~> 2.5'
   s.dependency 'RxBlocking', '~> 2.5'
   s.dependency 'OAuthSwift', '~> 0.5'
 end
