@@ -10,11 +10,15 @@ import Foundation
 import OAuthSwift
 import RxSwift
 
-class RxGoogleSignIn {
+public class RxGoogleSignIn {
     
     private static let cacheKey = String(OAuthSwiftCredential).componentsSeparatedByString(".").last!
     
-    class func login(provider: GoogleSignInProvider) -> Observable<OAuthSwiftCredential> {
+    public static var isUserLogged: Bool {
+        return OAuthCredentialsCache.sharedInstance.get(RxGoogleSignIn.cacheKey) != nil
+    }
+    
+    public class func login(provider: GoogleSignInProvider) -> Observable<OAuthSwiftCredential> {
         if let credentialObservable = OAuthCredentialsCache.sharedInstance.get(cacheKey) {
             return credentialObservable
         }
@@ -39,14 +43,14 @@ class RxGoogleSignIn {
         }
     }
     
-    class func closeCurrentConnection() -> Observable<Void> {
+    public class func closeCurrentConnection() -> Observable<Void> {
         return Observable.deferred {
             OAuthCredentialsCache.sharedInstance.evict(cacheKey)
             return Observable.just()
         }
     }
     
-    class func getOAuthCredential() -> Observable<OAuthSwiftCredential> {
+    public class func getOAuthCredential() -> Observable<OAuthSwiftCredential> {
         return Observable.deferred {
             if let credential = OAuthCredentialsCache.sharedInstance.get(cacheKey) {
                 return credential
