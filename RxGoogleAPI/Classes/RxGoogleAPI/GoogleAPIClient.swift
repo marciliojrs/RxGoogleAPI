@@ -10,9 +10,11 @@ import Foundation
 import Moya
 import RxSwift
 
-class GoogleAPIClient {
+public class GoogleAPIClient {
     
     private let disposeBag = DisposeBag()
+    
+    public init() { }
     
     private let provider = RxMoyaProvider<GoogleAPI>(endpointClosure: { (target: GoogleAPI) -> Endpoint<GoogleAPI> in
         let endpoint: Endpoint<GoogleAPI> = Endpoint<GoogleAPI>(URL: target.URL, sampleResponseClosure: {.NetworkResponse(200, target.sampleData)}, method: target.method, parameters: target.parameters, parameterEncoding: target.parameterEncoding)
@@ -20,7 +22,7 @@ class GoogleAPIClient {
         return RxGoogleSignIn.addOAuthHeader(GoogleSignInProvider.self, endpoint: endpoint)                
     })
         
-    func getMe() -> Observable<[String: AnyObject]> {
+    public func getMe() -> Observable<[String: AnyObject]> {
         return Observable.create { observer in
             self.provider.request(GoogleAPI.Me).subscribe { (event) in
                 switch event {

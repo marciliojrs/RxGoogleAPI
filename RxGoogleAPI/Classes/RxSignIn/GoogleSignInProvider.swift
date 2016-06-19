@@ -8,7 +8,7 @@
 
 import OAuthSwift
 
-class GoogleSignInProvider: OAuth2Swift {
+public class GoogleSignInProvider: OAuth2Swift {
     
     var scope: String
     var clientId: String
@@ -19,7 +19,7 @@ class GoogleSignInProvider: OAuth2Swift {
     let accessTokenURL  = "https://www.googleapis.com/oauth2/v4/token"
     let responseType    = "code"
     
-    init(scopes: [String] = ["email", "profile"]) {
+    public init(scopes: [String] = ["email", "profile"]) {
         guard let urlScheme = InfoPlistHelper.registeredURLSchemes(filter: {$0.hasPrefix("com.googleusercontent.apps.")}).first else {
             preconditionFailure("You must configure your Google URL Scheme to use Google login.")
         }
